@@ -5,7 +5,7 @@
   <h1 class="m-5">@if(Session::has('loginId')) Welcome {{$data->name}} , Vadavision Consultancy Inc! @else Please login to create todos. @endif</h1> 
 
   @if(Session::has('loginId')) 
-
+  {{-- @php print_r(Session::all()); @endphp --}}
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -17,7 +17,7 @@
     </thead>
     <tbody>
       @php
-                $sno=1;    
+                $sno=1;     
             @endphp
             @foreach($tododata as $t)
       <tr>

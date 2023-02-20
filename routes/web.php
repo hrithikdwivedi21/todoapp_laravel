@@ -18,8 +18,11 @@ use App\Http\Controllers\AuthController;
 Route::get('/',[HomeController::class,'index']);
 Route::get('/login',[AuthController::class,'login']);
 Route::get('/register',[AuthController::class,'register']);
-Route::get('todo',[HomeController::class,'todo'])->name("todo");
+Route::get('todo',[HomeController::class,'todo'])->name("todo")->middleware('islogin');
 Route::post('/register-user',[AuthController::class,'registerform'])->name('register-user');
 Route::post('/login-user',[AuthController::class,'loginUser'])->name('login-user');
 Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 Route::post('/addtodo',[HomeController::class,'addtodo'])->name('addtodo');
+Route::get('/no-access',function(){
+    echo "Page is not accessible";
+});
